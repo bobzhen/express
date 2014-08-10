@@ -19,20 +19,24 @@ app.configure(function(){
 	app.use(app.router);
 });
 
-// Use regex for parsing coming request
-app.get(/\/user\/(\d*)\/?(edit)?/, function(req, res){
-	// Possible matches :
-	// /user/10
-	// /user/10/
-	// /user/10/edit
-	var message = "\nWelcome " + req.params[0];
-	if(req.params[1] === 'edit'){
-		message = "Editing " + message;
-	} else {
-		message = "Viewing " + message;
-	}
-	res.send(message);
+app.get("/", function(req, res){
+	res.render("home.jade", { title : "Welcome to Express and you will enjoy it."});
 });
+
+// Use regex for parsing coming request
+// app.get(/\/user\/(\d*)\/?(edit)?/, function(req, res){
+// 	// Possible matches :
+// 	// /user/10
+// 	// /user/10/
+// 	// /user/10/edit
+// 	var message = "\nWelcome " + req.params[0];
+// 	if(req.params[1] === 'edit'){
+// 		message = "Editing " + message;
+// 	} else {
+// 		message = "Viewing " + message;
+// 	}
+// 	res.send(message);
+// });
 
 // app.post("/hello", function(req, res){
 // 	console.log(req.body.helloworld);
