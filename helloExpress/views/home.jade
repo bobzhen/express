@@ -1,6 +1,97 @@
-extends layout
+// extends layout
+// 
+// block content1
+//	h2= title
+// block content2
+//	h3= title
+//- this will not be shown in html code
 
-block content1
-	h2= title
-block content2
-	h3= title
+b Each Block
+- var users = [ { name:"joe", email: "joe@gmail.com"}, { name:"sally", email: "sally@gmail.com"}, { name:"jill", email: "jill@gmail.com"} ];
+
+ul 
+	each user, i in users
+		li #{ i + 1} : #{ user.name } &lt;#{ user.email }>
+
+B Same as above way, but more reusable
+mixin userLi(user)
+	li  #{ user.name } &lt;#{ user.email }>
+
+ul 
+	each user in users
+		mixin userLi(user)
+
+b Each Block in mixins.jade
+
+include mixins
+ul 
+	each user in users
+		mixin userLiInMixins(user)
+
+b Each Block in user.jade
+
+ul 
+	each userObject in users
+		include user
+
+- var numFollower = 2
+
+//- You can even omit curly brakets
+- if ( numFollower === 0 ){
+	p You have no follower.
+
+- } else if ( numFollower === 1 ) {
+	p You have one folower.
+- } else {
+	p You have #{ numFollower } followers.
+- }
+
+//- same as above, but more native jade code
+p 
+	if numFollower === 0
+		| You have no follower.
+	else if numFollower === 1
+		| You have one follower.
+	else
+		| You have #{ numFollower } followers.
+
+h1 Hello express
+h2= title
+
+style(type='text/css')
+	li { font-size: 18px; }
+ul#nav
+	li.current one
+	li two
+	li three
+
+p I want to put a lot of text here
+
+pre I want to put a lot of text here
+
+p
+	| I want
+	| to put
+	| a lot 
+	| of 
+	| text here....
+
+pre 
+	| I want
+	| to put
+	| a lot 
+	| of 
+	| text here....
+
+- var name = "Bob"
+p My name is #{name}
+p 1 + 2 = #{1+2}
+p=name
+- var fn = function(){ return "Hello From Function" };
+p= fn()
+- var name1 = "<b>bob</b>";
+- var name2 = "<em>bob</em>"
+p #{ name1 }
+p !{ name2 }
+
+a(href="https://www.google.com", rel="NoFollow") Go to Google

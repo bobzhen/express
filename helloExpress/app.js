@@ -13,13 +13,35 @@ var app = express();
 // all environments
 app.configure(function(){
 	app.set('port', process.env.PORT || 3000);
-	// use to parse coming request body
-	// app.use(app.router);
+	// default is views
+	app.set('views', __dirname + '/views');
+	app.set('view engine', 'jade');
+	// set to be able to see cache, only in prod server
+	// app.set('view cache', true);
+	// app.enable('view cache');
+	// case sensitive routes
+	// strict routing
+
+	// MIDDLEWARE www.senchalabs.org/connect/
 	app.use(bodyParser());
-	app.use(app.router);
+	// app.use(express.methodOverride());
+	// app.use(app.router);
+	// streaming static file, e.g. user tracking....
+	// app.use(express.static(__dirname + "/public"));
+	// app.use(app.router);
 });
 
+// app.configure("dev", function(){
+// 	app.set('port', process.env.PORT || 3000);
+// 	// use to parse coming request body
+// 	// app.use(app.router);
+// 	app.use(bodyParser());
+// 	app.use(app.router);
+// });
+// NODE_ENV=dev node app.js
+
 app.get("/", function(req, res){
+	// need to mention res.render("home.jade"....) if you dont keep app.set('view engine', 'jade') above
 	res.render("home.jade", { title : "Welcome to Express and you will enjoy it."});
 });
 
