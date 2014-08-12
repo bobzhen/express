@@ -3,10 +3,12 @@ express
 
 http://code.tutsplus.com/tutorials/build-a-complete-mvc-website-with-expressjs--net-34168
 
+push
+=======
 
 $ git push
 
-If get such error:
+If you get such error:
 
 C:\Users\BOB\Documents\GitHub\express [master]> git push
 To https://github.com/bobzhen/express.git
@@ -20,6 +22,8 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 
 maybe you should use $ git pull 
 
+Jade syntax
+=======
 
 Jade is useful, sample and powerful.
 http://naltatis.github.io/jade-syntax-docs/
