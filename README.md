@@ -5,11 +5,11 @@ http://code.tutsplus.com/tutorials/build-a-complete-mvc-website-with-expressjs--
 
 push
 =======
-
+```Shell
 $ git push
-
+```
 If you get such error:
-
+```Batchfile
 C:\Users\BOB\Documents\GitHub\express [master]> git push
 To https://github.com/bobzhen/express.git
  ! [rejected]        master -> master (fetch first)
@@ -19,12 +19,19 @@ hint: not have locally. This is usually caused by another repository pushing
 hint: to the same ref. You may want to first integrate the remote changes
 hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
-
-maybe you should use $ git pull 
+```
+maybe you should use ```Shell $ git pull ```
 
 Jade syntax
 =======
-
-Jade is useful, sample and powerful.
+```Jade
+p Jade is useful, sample and powerful.
+```
 http://naltatis.github.io/jade-syntax-docs/
 
+Github MarkDown
+======
+
+https://help.github.com/articles/github-flavored-markdown
+https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
+http://daringfireball.net/projects/markdown/
